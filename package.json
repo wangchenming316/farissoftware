@@ -1,0 +1,32 @@
+{
+  "name": "faris-software-website",
+  "version": "0.0.1",
+  "description": "Website",
+  "productName": "FarisSoftware",
+  "cordovaId": "org.cordova.quasar.app",
+  "capacitorId": "",
+  "author": "Nuon Dara",
+  "private": true,
+  "scripts": {
+    "build": "quasar build",
+    "dev": "quasar dev",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
+    "quasar": "^1.0.0",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0",
+    "@quasar/quasar-app-extension-qflashcard": "^1.0.1"
+  },
+  "engines": {
+    "node": "14.15.0",
+    "npm": "6.14.8"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
