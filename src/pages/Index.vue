@@ -36,7 +36,7 @@
           transition-next="slide-left"
           height="639px"
         >
-          <q-carousel-slide class="q-pa-none" :name="1" img-src="/statics/images/image_1.jpg">
+          <q-carousel-slide class="q-pa-none" :name="1" :key="1" img-src="/statics/images/image_1.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
                 <div class="text-h2 main_line animation_2">WELCOME TO <span :style="'color:'+theme_color">FARISSOFTWARE</span></div><br><br><br>
@@ -48,7 +48,7 @@
             </div>
           </q-carousel-slide>
 
-          <q-carousel-slide class="q-pa-none":name="2" img-src="/statics/images/image_2.jpg">
+          <q-carousel-slide class="q-pa-none":name="2" :key="2" img-src="/statics/images/image_2.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
                 <div class="text-h2 main_line animation_2" style="font-size:65px;"><span :style="'color:'+theme_color">Full-Cycle Development</span> Services</div><br><br><br>
@@ -60,7 +60,7 @@
             </div>
           </q-carousel-slide>
 
-          <q-carousel-slide class="q-pa-none":name="3" img-src="/statics/images/image_3.jpg">
+          <q-carousel-slide class="q-pa-none":name="3" :key="3" img-src="/statics/images/image_3.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
                 <div class="text-h2 main_line animation_2" style="font-size:65px;"><span :style="'color:'+theme_color">Reliable. Innovative. On-Time.</span></div><br><br><br>
@@ -376,7 +376,7 @@
               navigation-position="bottom"
               class="text-white full-height bg-transparent q-mx-xl"
             >
-              <q-carousel-slide style="padding-bottom: 140px" name="style" class="column no-wrap flex-center">
+              <q-carousel-slide style="padding-bottom: 140px" :key="1" name="style" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_1.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-xl text-h6 text-center">
@@ -390,7 +390,7 @@
                 </div>
               </q-carousel-slide>
 
-              <q-carousel-slide style="padding-bottom: 140px" name="tv" class="column no-wrap flex-center">
+              <q-carousel-slide style="padding-bottom: 140px" name="tv" :key="2" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_2.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-xl text-h6 text-center">
@@ -404,7 +404,7 @@
                 </div>
               </q-carousel-slide>
 
-              <q-carousel-slide style="padding-bottom: 140px" name="layers" class="column no-wrap flex-center">
+              <q-carousel-slide style="padding-bottom: 140px" name="layers" :key="3" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_3.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-xl text-h6 text-center">
@@ -441,7 +441,7 @@
               infinite
               autoplay
               control-color="primary"
-              navigation="none"
+              :navigation="false"
               padding
               height="300px"
               class="rounded-borders"
