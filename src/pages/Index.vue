@@ -256,10 +256,10 @@
         <div class="row text-center flex flex-center">
           <div class="col-md-8 col-lg-8 col-sx-8 col-sm-8 q-gutter-md flex flex-center">
             <div class="text-caption text-grey-9">
-              <q-label class="text-h6 text-grey-9">
+              <label class="text-h6 text-grey-9">
                 As the founder and CEO, I bring together a strong background in electrical engineering with a passion for programming and web development. With experience in both technical and digital domains, I lead our company with a clear vision — to deliver smart, functional, and innovative solutions.
                 We are an ambitious tech company focused on engineering, custom software development, and modern web solutions. Driven by quality, innovation, and a client-first approach, we aim to create long-term value and set new standards in every project we take on.
-              </q-label>
+              </label>
             </div>
           </div>
         </div>
@@ -363,7 +363,7 @@
         </div>
 
         <div class="quote" id="id_testimonial">
-          <div style="background-color: #000000ad !important;">
+          <div style="background-color: #000000ad !important;" class="q-py-xl">
             <q-carousel
               v-model="review_slide"
               swipeable
@@ -377,10 +377,10 @@
               class="text-white full-height bg-transparent q-mx-xl"
             >
               <q-carousel-slide style="padding-bottom: 140px" name="style" class="column no-wrap flex-center">
-                <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_1.jpg" width=150 height=150 />
+                <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_1.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-md text-h6 text-center">
-                  <span :style="'color:'+theme_color">Sarah Johnson</span>
+                <div class="q-mt-xl text-h6 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Sarah Johnson</span>
                   <br />
                   <span class="text-overline">CEO, BrightTech Solutions</span>
                 </div>
@@ -391,10 +391,10 @@
               </q-carousel-slide>
 
               <q-carousel-slide style="padding-bottom: 140px" name="tv" class="column no-wrap flex-center">
-                <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_2.jpg" width=150 height=150 />
+                <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_2.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-md text-h6 text-center">
-                  <span :style="'color:'+theme_color">Michael Lee</span>
+                <div class="q-mt-xl text-h6 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Michael Lee</span>
                   <br />
                   <span class="text-overline">Founder, GreenLeaf E-Commerce</span>
                 </div>
@@ -405,10 +405,10 @@
               </q-carousel-slide>
 
               <q-carousel-slide style="padding-bottom: 140px" name="layers" class="column no-wrap flex-center">
-                <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_3.jpg" width=150 height=150 />
+                <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_3.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-md text-h6 text-center">
-                  <span :style="'color:'+theme_color">Emily Davis</span>
+                <div class="q-mt-xl text-h6 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Emily Davis</span>
                   <br />
                   <span class="text-overline">Product Manager, NextGen Mobile</span>
                 </div>
@@ -437,7 +437,7 @@
               transition-prev="slide-right"
               transition-next="slide-left"
               swipeable
-              animated="false"
+              :animated="false"
               infinite
               autoplay
               control-color="primary"
