@@ -38,12 +38,9 @@
         >
           <q-carousel-slide class="q-pa-none" :name="1" :key="1" img-src="/statics/images/image_1.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
-              <div class="custom-caption">
-                <div class="text-h2 main_line animation_2">WELCOME TO <span :style="'color:'+theme_color">FARISSOFTWARE</span></div><br><br><br>
-                <div class="text-h4 animation_1">We craft custom web and mobile solutions tailored to your business needs.<br/>From idea to launch, we bring your vision to life with precision and creativity.</div><br/><br/><br/>
-                <!-- <div class="animation_2">
-                  <q-btn size="md" :style="'background:'+ theme_color +'; color: white'" label="READ MORE"/>
-                </div> -->
+              <div class="custom-caption q-px-2">
+                <div class="main_line animation_2">WELCOME TO <span :style="'color:'+theme_color">FARISSOFTWARE</span></div><br><br><br>
+                <div class="main_description_line animation_1">We craft custom web and mobile solutions tailored to your business needs.<br/>From idea to launch, we bring your vision to life with precision and creativity.</div><br/><br/><br/>
               </div>
             </div>
           </q-carousel-slide>
@@ -51,11 +48,8 @@
           <q-carousel-slide class="q-pa-none":name="2" :key="2" img-src="/statics/images/image_2.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
-                <div class="text-h2 main_line animation_2" style="font-size:65px;"><span :style="'color:'+theme_color">Full-Cycle Development</span> Services</div><br><br><br>
-                <div class="text-h4 animation_1">From UI/UX design to backend development, our team builds scalable and<br/>modern applications that deliver real value. Your success is our priority.</div><br/><br/><br/>
-                <!-- <div class="animation_2">
-                  <q-btn size="md" :style="'background:'+ theme_color +'; color: white'" label="READ MORE"/>
-                </div> -->
+                <div class="main_line animation_2"><span :style="'color:'+theme_color">Full-Cycle Development</span> Services</div><br><br><br>
+                <div class="main_description_line animation_1">From UI/UX design to backend development, our team builds scalable and<br/>modern applications that deliver real value. Your success is our priority.</div><br/><br/><br/>
               </div>
             </div>
           </q-carousel-slide>
@@ -63,11 +57,8 @@
           <q-carousel-slide class="q-pa-none":name="3" :key="3" img-src="/statics/images/image_3.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
-                <div class="text-h2 main_line animation_2" style="font-size:65px;"><span :style="'color:'+theme_color">Reliable. Innovative. On-Time.</span></div><br><br><br>
-                <div class="text-h4 animation_1">At FarisSoftware, we blend technical expertise with creative design<br/> to deliver quality products - on time, every time.<br/><br/>Let's build something great together.</div><br/><br/><br/>
-                <!-- <div class="animation_2">
-                  <q-btn size="md" :style="'background:'+ theme_color +'; color: white'" label="READ MORE"/>
-                </div> -->
+                <div class="main_line animation_2"><span :style="'color:'+theme_color">Reliable. Innovative. On-Time.</span></div><br><br><br>
+                <div class="main_description_line animation_1">At FarisSoftware, we blend technical expertise with creative design<br/> to deliver quality products - on time, every time.<br/><br/>Let's build something great together.</div><br/><br/><br/>
               </div>
             </div>
           </q-carousel-slide>
@@ -464,23 +455,6 @@
                         <q-flashcard-section transition="spin-in" class="team-text" :active="active">
                           {{ team.role }}
                         </q-flashcard-section>
-
-                        <!-- <q-flashcard-section
-                          style="padding-bottom: 50px"
-                          transition="slide-up-in"
-                          class="fit flex justify-center items-end"
-                          :active="active"
-                        >
-                          <q-btn
-                            class="q-mr-md"
-                            :style="'color:'+theme_color"
-                            style="background-color:white"
-                            round
-                            icon="card_giftcard"
-                          />
-
-                          <q-btn :style="'color:'+theme_color" style="background-color:white" round icon="link"/>
-                        </q-flashcard-section> -->
                       </q-flashcard-section>
                     </q-flashcard>
                   </span>
@@ -489,192 +463,6 @@
             </q-carousel>
           </div>
         </div>
-
-        <!-- <div class="pricing" id="id_pricing">
-          <div class="" style="background-color: #000000ad !important; min-height: 500px;">
-            <div class="row">
-              <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                <h5 class="text-center text-white">Our Pricing Plan
-                  <br />
-                  <span class="text-center text-grey text-h6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                </h5>
-              </div>
-            </div>
-
-            <div class="row q-col-gutter-sm q-px-xl">
-              <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6 q-px-lg">
-                <q-card>
-                  <q-card-section class="text-white" style="background: #ec982f">
-                    <div class="text-h6 text-center">
-                      FREE
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-md">
-                    <q-list dense padding style="border-bottom: 1px solid lightgrey;">
-                      <q-item>
-                        <span class="text-weight-bold">For small size companies</span>
-                      </q-item>
-                      <q-item> 50 GB storage</q-item>
-                      <q-item>10 Domains</q-item>
-                      <q-item>15 Projects</q-item>
-                      <q-item>Free Deployment</q-item>
-                    </q-list>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-none" style="color: #ec982f">
-                    <div class="text-center">
-                      <span class="text-h2 text-center">$0</span>/mo
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section>
-                    <div class="text-center q-px-lg">
-                      <q-btn
-                        size="md"
-                        class="full-width q-pa-xs"
-                        style="background: #ec982f;
-                        color: white"
-                        label="Choose Plan"
-                      />
-
-                      <br />
-
-                      <div class="q-mt-md">Terms and Conditions apply</div>
-                    </div>
-                  </q-card-section>
-                </q-card>
-              </div>
-
-              <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6 q-px-lg">
-                <q-card>
-                  <q-card-section class="text-white" style="background: #f4655f">
-                    <div class="text-h6 text-center">
-                      STANDARD
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-md">
-                    <q-list dense padding style="border-bottom: 1px solid lightgrey;">
-                      <q-item>
-                        <span class="text-weight-bold">For medium companies</span>
-                      </q-item>
-                      <q-item>50 GB storage</q-item>
-                      <q-item>10 Domains</q-item>
-                      <q-item>15 Projects</q-item>
-                      <q-item>Free Deployment</q-item>
-                    </q-list>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-none" style="color: #f4655f">
-                    <div class="text-center">
-                      <span class="text-h2 text-center">$50</span>/mo
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section>
-                    <div class="text-center q-px-lg">
-                      <q-btn
-                        size="md"
-                        class="full-width q-pa-xs"
-                        style="background: #f4655f; color: white;"
-                        label="Choose Plan"
-                      />
-                      <br />
-                      <div class="q-mt-md">Terms and Conditions apply</div>
-                    </div>
-                  </q-card-section>
-                </q-card>
-              </div>
-
-              <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6 q-px-lg">
-                <q-card>
-                  <q-card-section class="text-white q-pa-md" style="background: #8b3bbd">
-                    <div class="text-h6 text-center">
-                      PREMIUM
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-md">
-                    <q-list dense padding style="border-bottom: 1px solid lightgrey;">
-                      <q-item>
-                        <span class="text-weight-bold">For average companies</span>
-                      </q-item>
-                      <q-item>50 GB storage</q-item>
-                      <q-item>10 Domains</q-item>
-                      <q-item>15 Projects</q-item>
-                      <q-item>Free Deployment</q-item>
-                    </q-list>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-none" style="color: #8b3bbd">
-                    <div class="text-center">
-                      <span class="text-h2 text-center">$250</span>/mo
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section>
-                    <div class="text-center q-px-lg">
-                      <q-btn
-                        size="md"
-                        class="full-width q-pa-xs"
-                        :style="'background: #8b3bbd; color: white'"
-                        label="Choose Plan"
-                      />
-                      <br />
-                      <div class="q-mt-md">Terms and Conditions apply</div>
-                    </div>
-                  </q-card-section>
-                </q-card>
-              </div>
-
-              <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6 q-px-lg">
-                <q-card>
-                  <q-card-section class="text-white" style="background: #3b97d1">
-                    <div class="text-h6 text-center">
-                      PROFESSIONAL
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-md">
-                    <q-list dense padding style="border-bottom: 1px solid lightgrey;">
-                      <q-item>
-                        <span class="text-weight-bold">For large companies</span>
-                      </q-item>
-                      <q-item>50 GB storage</q-item>
-                      <q-item>10 Domains</q-item>
-                      <q-item>15 Projects</q-item>
-                      <q-item>Free Deployment</q-item>
-                    </q-list>
-                  </q-card-section>
-
-                  <q-card-section class="q-pa-none" style="color: #3b97d1">
-                    <div class="text-center">
-                      <span class="text-h2 text-center">$500</span>/mo
-                    </div>
-                  </q-card-section>
-
-                  <q-card-section>
-                    <div class="text-center q-px-lg">
-                      <q-btn
-                        size="md"
-                        class="full-width q-pa-xs"
-                        style="background:#3b97d1; color: white"
-                        label="Choose Plan"
-                      />
-                      <br />
-
-                      <div class="q-mt-md">Terms and Conditions apply</div>
-                    </div>
-                  </q-card-section>
-                </q-card>
-              </div>
-            </div>
-
-            <br />
-            <br />
-          </div>
-        </div> -->
 
         <div class="row" id="id_news">
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
@@ -922,10 +710,21 @@
 
 <style lang="sass" scoped>
   .main_line
-    font-size: 75px;
+    font-size: 30px;
     letter-spacing: 5px;
-    line-height: 60px;
+    line-height: 40px;
     font-weight: 600;
+
+    @media (min-width: 600px)
+      font-size: 75px;
+      line-height: 60px;
+
+  .main_description_line
+    font-size: 23px;
+    margin: 0 10px;
+
+    @media (min-width: 600px)
+      font-size: 34px;
 
   .custom-caption
     text-align: center;
