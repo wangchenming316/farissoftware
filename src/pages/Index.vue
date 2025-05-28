@@ -3,22 +3,62 @@
     <q-header
       class="q-py-sm"
       style="background-color: #1c1b21;"
-      :style="'border-bottom: 2px solid '+ theme_color"
+      :style="'border-bottom: 2px solid ' + theme_color"
     >
       <q-toolbar>
-        <span :style="'font-size: 35px;color:'+theme_color" class="my-font text-h6 q-mr-md">FarisSoftware</span>
+        <span :style="'font-size: 35px; color:' + theme_color" class="my-font text-h6 q-mr-md">FarisSoftware</span>
         <q-space></q-space>
 
-        <q-tabs v-model="selected_tab" shrink>
-          <q-tab :style= "[selected_tab == 't_0' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_portfolio');" style="width:120px;min-height:auto !important;color: white" label="Portfolio" />
-          <q-tab :style= "[selected_tab == 't_1' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_about_us');" style="width:120px;min-height:auto !important;color: white" label="About Us" />
-          <q-tab :style= "[selected_tab == 't_2' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_services');" style="width:120px;min-height:auto !important;color: white" label="Services" />
-          <q-tab :style= "[selected_tab == 't_3' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_testimonial');" style="min-height:auto !important;color: white" label="Testimonial" />
-          <q-tab :style= "[selected_tab == 't_4' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_team');" style="width:120px;min-height:auto !important;color: white" label="Team" />
-          <!-- <q-tab :style= "[selected_tab == 't_5' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_pricing');" style="width:120px;min-height:auto !important;color: white" label="Pricing" /> -->
-          <q-tab :style= "[selected_tab == 't_6' ? {backgroundColor: theme_color} : {}]" class="q-mr-sm q-py-xs custom_tab" @click="scrollToElement('id_news');" style="width:120px;min-height:auto !important;color: white" label="Hiring" />
+        <q-tabs
+          v-model="selected_tab"
+          dense
+          inline-label
+          shrin
+          v-show="$q.screen.gt.xs"
+        >
+          <q-tab
+            v-for="tab in tabs"
+            :key="tab.value"
+            :name="tab.value"
+            :label="tab.label"
+            :style="selected_tab === tab.value ? { backgroundColor: theme_color, color: 'white' } : { color: 'white' }"
+            class="q-mr-sm q-py-xs custom_tab"
+            @click="scrollToElement(tab.target)"
+          />
         </q-tabs>
+
+        <!-- Mobile Menu Icon -->
+        <q-btn
+          v-if="$q.screen.lt.sm"
+          dense
+          flat
+          round
+          icon="menu"
+          @click="toggleMenu"
+        />
       </q-toolbar>
+
+      <!-- Mobile Dropdown List -->
+      <transition name="slide">
+        <div
+          v-if="menuOpen && $q.screen.lt.sm"
+          class="text-white"
+          style="background-color: #1c1b21; width: 100%; border-top: 1px solid white;"
+        >
+          <q-list separator>
+            <q-item
+              v-for="tab in tabs"
+              :key="tab.value"
+              clickable
+              @click="handleMobileNav(tab.target)"
+            >
+              <q-item-section class="text-subtitle1 text-center">
+                {{ tab.label }}
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+      </transition>
     </q-header>
 
     <q-page-container>
@@ -45,7 +85,7 @@
             </div>
           </q-carousel-slide>
 
-          <q-carousel-slide class="q-pa-none":name="2" :key="2" img-src="/statics/images/image_2.jpg">
+          <q-carousel-slide class="q-pa-none" :name="2" :key="2" img-src="/statics/images/image_2.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
                 <div class="main_line animation_2"><span :style="'color:'+theme_color">Full-Cycle Development</span> Services</div><br><br><br>
@@ -54,7 +94,7 @@
             </div>
           </q-carousel-slide>
 
-          <q-carousel-slide class="q-pa-none":name="3" :key="3" img-src="/statics/images/image_3.jpg">
+          <q-carousel-slide class="q-pa-none" :name="3" :key="3" img-src="/statics/images/image_3.jpg">
             <div class="full-height full-width flex flex-center" style="background-color: rgba(0, 0, 0, 0.68) !important;">
               <div class="custom-caption">
                 <div class="main_line animation_2"><span :style="'color:'+theme_color">Reliable. Innovative. On-Time.</span></div><br><br><br>
@@ -191,18 +231,18 @@
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
               <h5 class="text-center text-h3">Our Portfolio
                 <br>
-                <span class="text-center text-grey-8 text-h6">Showcasing our best work that delivers innovation and excellence.</span>
+                <h5 class="text-center text-grey-8 text-h5 q-pb-none q-px-sm">Showcasing our best work that delivers innovation and excellence.</h5>
               </h5>
             </div>
           </div>
 
           <br />
 
-          <div class="row text-center" style="padding-bottom: 99px">
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+          <div class="row text-center flex flex-center " >
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 q-px-xl">
               <div style="line-height:0">
                 <span v-for="sample in portfolio_samples" :key="sample.index">
-                  <q-flashcard :no-hover="hover" :style="style">
+                  <q-flashcard :no-hover="hover" :style="portfolio_style">
                     <q-flashcard-section transition="nudge-in" :active="active">
                       <img :src="'/statics/images/'+sample.index+'.jpg'" width=340 height=263>
                     </q-flashcard-section>
@@ -239,15 +279,15 @@
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center text-h3">About Us
               <br />
-              <span class="text-center text-grey-8 text-h6">Innovative software solutions crafted to bring your vision to life.</span>
+              <h4 class="text-center text-grey-8 text-h4">Innovative software solutions crafted to bring your vision to life.</h4>
             </h5>
           </div>
         </div>
 
         <div class="row text-center flex flex-center">
-          <div class="col-md-8 col-lg-8 col-sx-8 col-sm-8 q-gutter-md flex flex-center">
+          <div class="col-md-8 col-lg-8 col-sx-8 col-sm-8 q-gutter-md flex flex-center q-mx-md">
             <div class="text-caption text-grey-9">
-              <label class="text-h6 text-grey-9">
+              <label class="text-h5 text-grey-9">
                 As the founder and CEO, I bring together a strong background in electrical engineering with a passion for programming and web development. With experience in both technical and digital domains, I lead our company with a clear vision — to deliver smart, functional, and innovative solutions.
                 We are an ambitious tech company focused on engineering, custom software development, and modern web solutions. Driven by quality, innovation, and a client-first approach, we aim to create long-term value and set new standards in every project we take on.
               </label>
@@ -263,12 +303,12 @@
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
               <h5 class="text-center text-h3">Our Services
                 <br />
-                <span class="text-center text-grey-8 text-h6">Comprehensive digital solutions tailored to accelerate your business growth.</span>
+                <h5 class="text-center text-grey-8 text-h5">Comprehensive digital solutions tailored to accelerate your business growth.</h5>
               </h5>
             </div>
           </div>
 
-          <div class="q-pa-xl">       
+          <div class="q-pa-md">       
             <div class="row q-col-gutter-sm">
               <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                 <q-item class="box-shadow q-pa-none q-ml-xs ">
@@ -365,18 +405,18 @@
               navigation
               padding
               navigation-position="bottom"
-              class="text-white full-height bg-transparent q-mx-xl"
+              class="text-white full-height bg-transparent q-mx-sm"
             >
               <q-carousel-slide style="padding-bottom: 140px" :key="1" name="style" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_1.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-xl text-h6 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Sarah Johnson</span>
+                <div class="q-mt-md text-h4 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Sarah Johnson</span>
                   <br />
                   <span class="text-overline">CEO, BrightTech Solutions</span>
                 </div>
 
-                <div class="q-mt-md text-h6 text-center">
+                <div class="q-mt-md text-h5 text-center">
                   "The team delivered our app on time with exceptional quality. Their communication and creativity made the entire process smooth and enjoyable."
                 </div>
               </q-carousel-slide>
@@ -384,13 +424,13 @@
               <q-carousel-slide style="padding-bottom: 140px" name="tv" :key="2" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_2.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-xl text-h6 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Michael Lee</span>
+                <div class="q-mt-md text-h4 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Michael Lee</span>
                   <br />
                   <span class="text-overline">Founder, GreenLeaf E-Commerce</span>
                 </div>
 
-                <div class="q-mt-md text-h6 text-center">
+                <div class="q-mt-md text-h5 text-center">
                   "Their expertise in UI/UX design transformed our website’s user experience, resulting in higher engagement and sales."
                 </div>
               </q-carousel-slide>
@@ -398,13 +438,13 @@
               <q-carousel-slide style="padding-bottom: 140px" name="layers" :key="3" class="column no-wrap flex-center">
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_3.jpg" width=150 height=150 /> -->
 
-                <div class="q-mt-xl text-h6 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-xl">Emily Davis</span>
+                <div class="q-mt-md text-h4 text-center">
+                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Emily Davis</span>
                   <br />
                   <span class="text-overline">Product Manager, NextGen Mobile</span>
                 </div>
 
-                <div class="q-mt-md text-h6 text-center">
+                <div class="q-mt-md text-h5 text-center">
                   "Reliable, innovative, and supportive — they were our go-to partner for mobile app development from start to launch."
                 </div>
               </q-carousel-slide>
@@ -416,59 +456,43 @@
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center text-h3">Our Team
               <br />
-              <span class="text-center text-grey-8 text-h6">Meet the passionate professionals dedicated to delivering innovative software solutions.</span>
+              <h5 class="text-center text-grey-8 text-h5">Meet the passionate professionals dedicated to delivering innovative software solutions.</h5>
             </h5>
           </div>
         </div>
 
-        <div class="row text-center flex flex-center">
-          <div class="col-md-12 col-lg-12 col-sx-12 col-sm-12 q-px-xl" style="width:100%; overflow:auto;">
-            <q-carousel
-              v-model="team_slide"
-              transition-prev="slide-right"
-              transition-next="slide-left"
-              swipeable
-              :animated="false"
-              infinite
-              autoplay
-              control-color="primary"
-              :navigation="false"
-              padding
-              height="300px"
-              class="rounded-borders"
-            >
-              <q-carousel-slide v-for="val in [1,2,3]" :key="val" :name="val" class="column no-wrap">
-                <div class="row fit justify-center items-center q-gutter-xs q-col-gutter no-wrap">
-                  <span v-for="team in team_samples" :key="team.index">
-                    <q-flashcard :no-hover="hover" :style="team_style">
-                      <q-flashcard-section transition="['nudge-out', 'fade-out']" :active="active">
-                        <img :src="team.image" width=260 height=263>
-                      </q-flashcard-section>
+        <div class="row text-center flex flex-center ">
+          <div class="col-md-12 col-lg-12 col-sx-12 col-sm-12 q-px-xl">
+            
+              <span v-for="team in team_samples" :key="team_samples.index">
+                <q-flashcard :no-hover="hover" :style="team_style">
+                  <q-flashcard-section transition="['nudge-out', 'fade-out']" :active="active">
+                    <img :src="team.image" width=260 height=263>
+                  </q-flashcard-section>
 
-                      <q-flashcard-section transition="fade-in" class="fit" :active="active">
-                        <div class="fit" :style="background_style"></div>
+                  <q-flashcard-section transition="fade-in" class="fit" :active="active">
+                    <div class="fit" :style="background_style"></div>
 
-                        <q-flashcard-section transition="shake-down" class="text-center team-header" :active="active">
-                          {{ team.name }}
-                        </q-flashcard-section>
+                    <q-flashcard-section transition="shake-down" class="text-center team-header" :active="active">
+                      {{ team.name }}
+                    </q-flashcard-section>
 
-                        <q-flashcard-section transition="spin-in" class="team-text" :active="active">
-                          {{ team.role }}
-                        </q-flashcard-section>
-                      </q-flashcard-section>
-                    </q-flashcard>
-                  </span>
-                </div>
-              </q-carousel-slide>
-            </q-carousel>
+                    <q-flashcard-section transition="spin-in" class="team-text" :active="active">
+                      {{ team.role }}
+                    </q-flashcard-section>                    
+                  </q-flashcard-section>
+                </q-flashcard>
+
+                <br v-if="index==3" />
+              </span>
           </div>
         </div>
-
+        
         <div class="row" id="id_news">
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center text-h3">Hiring
               <br />
-              <span class="text-center text-grey-8 text-h6">Join our team of innovators and help shape the future of digital solutions.</span>
+              <h5 class="text-center text-grey-8 text-h5">Join our team of innovators and help shape the future of digital solutions.</h5>
             </h5>
           </div>
         </div>
@@ -534,13 +558,13 @@
               <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                 <h5 class="text-center text-white text-h3">Contact Us
                   <br />
-                  <span class="text-center text-grey text-h6">Our team is ready to collaborate and support you every step of the way.</span>
+                  <h5 class="text-center text-grey text-h5">Our team is ready to collaborate and support you every step of the way.</h5>
                 </h5>
               </div>
             </div>
 
             <div class="row text-center flex flex-center q-pb-lg">
-              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-xl q-pb-none q-ma-none">
+              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-md q-pb-none q-ma-none">
                 <q-input bg-color="white" outlined label="Your Name *">
                   <template v-slot:append>
                     <q-icon name="person" :style="'color:' + theme_color" />
@@ -560,7 +584,7 @@
                 </q-input>
               </div>
 
-              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-xl q-pb-none q-ma-none">
+              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-md q-pb-none q-ma-none">
                 <q-input class="" type="textarea" bg-color="white" outlined label="Your Message *">
                   <template v-slot:append>
                     <q-icon name="chat" :style="'color:' + theme_color" />
@@ -569,7 +593,7 @@
               </div>
             </div>
 
-            <div class="row flex flex-center text-center q-pb-xl q-mt-md">
+            <div class="row flex flex-center text-center q-pb-md q-mt-md">
               <div class="col-md-12 col-lg-12 col-sx-12 col-sm-12">
                 <q-btn size="lg" :style="'background:'+ theme_color +'; color: white'" label="Send Message"/>
               </div>
@@ -590,7 +614,7 @@
 <style src="@quasar/quasar-ui-qflashcard/dist/index.css"></style>
 
 <script>
-  import { scroll } from 'quasar';
+  import { scroll} from 'quasar';
   import {QFlashcard, QFlashcardSection} from '@quasar/quasar-ui-qflashcard';
 
   const { getScrollTarget, setScrollPosition } = scroll;
@@ -599,6 +623,9 @@
     components: {
       QFlashcard,
       QFlashcardSection
+    },
+    setup() {
+      
     },
     data() {
       return {
@@ -617,6 +644,16 @@
         about_heading_color_1: '#424242',
         about_heading_color_2: '#424242',
         about_heading_color_3: '#424242',
+        menuOpen: false,
+        
+        tabs: [
+          { label: 'Portfolio', value: 't_0', target: 'id_portfolio' },
+          { label: 'About Us', value: 't_1', target: 'id_about_us' },
+          { label: 'Services', value: 't_2', target: 'id_services' },
+          { label: 'Testimonial', value: 't_3', target: 'id_testimonial' },
+          { label: 'Team', value: 't_4', target: 'id_team' },
+          { label: 'Hiring', value: 't_6', target: 'id_news' }
+        ],
         portfolio_samples: [
           {
             index: 1,
@@ -660,7 +697,7 @@
       }
     },
     computed: {
-      style() {
+      portfolio_style() {
         return {
           width: '340px',
           height: '263px',
@@ -682,6 +719,14 @@
       }
     },
     methods: {
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+      },
+      handleMobileNav(id) {
+        this.menuOpen = false;
+        this.scrollToElement(id);
+        
+      },
       scrollToElement (id) {
         let el = document.getElementById(id);
         const target = getScrollTarget(el);
@@ -704,6 +749,7 @@
           this['about_heading_' + index] = [];                
         }, 1000);
       },
+      
     }
   }
 </script>
@@ -830,6 +876,20 @@
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    font-size: 32px; /* default font size */
+    line-height: 1.4;
+
+    @media (max-width: 599px) 
+      h3
+        font-size: 18px; 
+        line-height: 1.3;
+        padding: 0 1rem;     
+   
+  @media (max-width: 599px) 
+    h6
+      font-size: 16px; 
+      line-height: 1.1;
+      padding: 0 1rem;   
   
   .pricing
     background: url(/statics/images/pricing.jpg);
@@ -846,5 +906,31 @@
     background-repeat: no-repeat;
   
   .custom_tab
-    width: 130px;
+    min-width: 100px;
+    color: white;
+    transition: background-color 0.3s ease;
+  
+  .q-tabs-mobile 
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  
+  
+  .q-tab 
+    min-width: 100px;
+    white-space: nowrap;
+    text-align: center;
+
+  .slide-enter-active, .slide-leave-active 
+    transition: max-height 0.3s ease;
+  
+  .slide-enter, .slide-leave-to 
+    max-height: 0;
+    overflow: hidden;
+  
+  .slide-enter-to, .slide-leave 
+    max-height: 300px; /* adjust as needed */
+    overflow: hidden;
+  
+  
 </style>
