@@ -17,7 +17,7 @@
           v-show="$q.screen.gt.xs"
         >
           <q-tab
-            v-for="tab in tabs"
+            v-for="(tab, index) in tabs"
             :key="tab.value"
             :name="tab.value"
             :label="tab.label"
@@ -47,7 +47,7 @@
         >
           <q-list separator>
             <q-item
-              v-for="tab in tabs"
+              v-for="(tab, index) in tabs"
               :key="tab.value"
               clickable
               @click="handleMobileNav(tab.target)"
@@ -221,6 +221,9 @@
                 :style="'background:'+ theme_color +'; color: white'"
                 label="Contact Us"
               />
+              <br />
+              <br />
+              <br />
             </h3>
           </div>
         </div>
@@ -229,10 +232,10 @@
           <br />
           <div class="row">
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-              <h5 class="text-center text-h3">Our Portfolio
+              <h3 class="text-center text-h3">Our Portfolio
                 <br>
                 <h5 class="text-center text-grey-8 text-h5 q-pb-none q-px-sm">Showcasing our best work that delivers innovation and excellence.</h5>
-              </h5>
+              </h3>
             </div>
           </div>
 
@@ -240,8 +243,7 @@
 
           <div class="row text-center flex flex-center " >
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 q-px-xl">
-              <div style="line-height:0">
-                <span v-for="sample in portfolio_samples" :key="sample.index">
+                <span v-for="(sample, index) in portfolio_samples" :key="sample.index">
                   <q-flashcard :no-hover="hover" :style="portfolio_style">
                     <q-flashcard-section transition="nudge-in" :active="active">
                       <img :src="'/statics/images/'+sample.index+'.jpg'" width=340 height=263>
@@ -270,7 +272,10 @@
 
                   <br v-if="index==3" />
                 </span>
-              </div>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
           </div>
         </div>
@@ -279,7 +284,7 @@
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center text-h3">About Us
               <br />
-              <h4 class="text-center text-grey-8 text-h4">Innovative software solutions crafted to bring your vision to life.</h4>
+              <h5 class="text-center text-grey-8 text-h5  q-mx-md">Innovative software solutions crafted to bring your vision to life.</h5>
             </h5>
           </div>
         </div>
@@ -287,7 +292,7 @@
         <div class="row text-center flex flex-center">
           <div class="col-md-8 col-lg-8 col-sx-8 col-sm-8 q-gutter-md flex flex-center q-mx-md">
             <div class="text-caption text-grey-9">
-              <label class="text-h5 text-grey-9">
+              <label class="text-h6 text-grey-9">
                 As the founder and CEO, I bring together a strong background in electrical engineering with a passion for programming and web development. With experience in both technical and digital domains, I lead our company with a clear vision — to deliver smart, functional, and innovative solutions.
                 We are an ambitious tech company focused on engineering, custom software development, and modern web solutions. Driven by quality, innovation, and a client-first approach, we aim to create long-term value and set new standards in every project we take on.
               </label>
@@ -303,7 +308,7 @@
             <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
               <h5 class="text-center text-h3">Our Services
                 <br />
-                <h5 class="text-center text-grey-8 text-h5">Comprehensive digital solutions tailored to accelerate your business growth.</h5>
+                <h5 class="text-center text-grey-8 text-h5 q-mx-md">Comprehensive digital solutions tailored to accelerate your business growth.</h5>
               </h5>
             </div>
           </div>
@@ -318,7 +323,7 @@
 
                   <q-item-section class="q-pa-md q-ml-none">
                     <q-item-label class="text-h6 text-grey-9 text-uppercase">UI/UX Design</q-item-label>
-                    <q-item-label class="text-grey-8">Crafting intuitive and engaging user experiences that make your apps and websites stand out.</q-item-label>
+                    <q-item-label class="text-grey-8 text-justify">Crafting intuitive and engaging user experiences that make your apps and websites stand out.</q-item-label>
                   </q-item-section>
                 </q-item>
               </div>
@@ -391,6 +396,11 @@
               </div>
             </div>
           </div>          
+          <div class="row">
+            <br>
+            <br>
+            <br>
+          </div>
         </div>
 
         <div class="quote" id="id_testimonial">
@@ -411,9 +421,8 @@
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_1.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-md text-h4 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Sarah Johnson</span>
-                  <br />
-                  <span class="text-overline">CEO, BrightTech Solutions</span>
+                  <span :style="'color:'+theme_color" class="text-h3 q-mt-sm">Sarah Johnson</span>
+                  <h6 >CEO, BrightTech Solutions</h6>
                 </div>
 
                 <div class="q-mt-md text-h5 text-center">
@@ -425,9 +434,8 @@
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_2.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-md text-h4 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Michael Lee</span>
-                  <br />
-                  <span class="text-overline">Founder, GreenLeaf E-Commerce</span>
+                  <span :style="'color:'+theme_color" class="text-h3 q-mt-sm">Michael Lee</span>
+                  <h6 >Founder, GreenLeaf E-Commerce</h6>
                 </div>
 
                 <div class="q-mt-md text-h5 text-center">
@@ -439,9 +447,8 @@
                 <!-- <img :style="'margin-top:100px;border-radius:5px;border: 4px solid ' + theme_color" src="/statics/images/team_3.jpg" width=150 height=150 /> -->
 
                 <div class="q-mt-md text-h4 text-center">
-                  <span :style="'color:'+theme_color" class="text-h4 q-mt-sm">Emily Davis</span>
-                  <br />
-                  <span class="text-overline">Product Manager, NextGen Mobile</span>
+                  <span :style="'color:'+theme_color" class="text-h3 q-mt-sm">Emily Davis</span>
+                  <h6 >Product Manager, NextGen Mobile</h6>
                 </div>
 
                 <div class="q-mt-md text-h5 text-center">
@@ -454,17 +461,17 @@
 
         <div class="row" id="id_team">
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-            <h5 class="text-center text-h3">Our Team
+            <h3 class="text-center text-h3">Our Team
               <br />
-              <h5 class="text-center text-grey-8 text-h5">Meet the passionate professionals dedicated to delivering innovative software solutions.</h5>
-            </h5>
+              <h5 class="text-center text-grey-8 text-h5 q-mx-md">Meet the passionate professionals dedicated to delivering innovative software solutions.</h5>
+            </h3>
           </div>
         </div>
 
         <div class="row text-center flex flex-center ">
           <div class="col-md-12 col-lg-12 col-sx-12 col-sm-12 q-px-xl">
             
-              <span v-for="team in team_samples" :key="team_samples.index">
+              <span v-for="(team, index) in team_samples" :key="team_samples.index">
                 <q-flashcard :no-hover="hover" :style="team_style">
                   <q-flashcard-section transition="['nudge-out', 'fade-out']" :active="active">
                     <img :src="team.image" width=260 height=263>
@@ -492,7 +499,7 @@
           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center text-h3">Hiring
               <br />
-              <h5 class="text-center text-grey-8 text-h5">Join our team of innovators and help shape the future of digital solutions.</h5>
+              <h5 class="text-center text-grey-8 text-h5 q-mx-md">Join our team of innovators and help shape the future of digital solutions.</h5>
             </h5>
           </div>
         </div>
@@ -556,15 +563,15 @@
           <div style="background-color: #000000ad !important;">
             <div class="row" id="id_news">
               <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                <h5 class="text-center text-white text-h3">Contact Us
+                <h3 class="text-center text-white text-h3">Contact Us
                   <br />
-                  <h5 class="text-center text-grey text-h5">Our team is ready to collaborate and support you every step of the way.</h5>
-                </h5>
+                  <h5 class="text-center text-grey text-h5 q-mx-md">Our team is ready to collaborate and support you every step of the way.</h5>
+                </h3>
               </div>
             </div>
 
-            <div class="row text-center flex flex-center q-pb-lg">
-              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-md q-pb-none q-ma-none">
+            <div class="row text-center flex q-pb-lg">
+              <div class="flex-center offset-1 col-10 col-md-4 offset-1 q-gutter-lg q-px-md q-pb-md q-mx-none">
                 <q-input bg-color="white" outlined label="Your Name *">
                   <template v-slot:append>
                     <q-icon name="person" :style="'color:' + theme_color" />
@@ -584,7 +591,7 @@
                 </q-input>
               </div>
 
-              <div class="col-md-6 col-lg-6 col-sx-12 col-sm-12 q-gutter-lg q-px-md q-pb-none q-ma-none">
+              <div class="offset-1 col-10 col-md-4 offset-1 q-gutter-lg q-px-md q-pb-none q-mx-none">
                 <q-input class="" type="textarea" bg-color="white" outlined label="Your Message *">
                   <template v-slot:append>
                     <q-icon name="chat" :style="'color:' + theme_color" />
@@ -594,10 +601,12 @@
             </div>
 
             <div class="row flex flex-center text-center q-pb-md q-mt-md">
-              <div class="col-md-12 col-lg-12 col-sx-12 col-sm-12">
+              <div class="col-12">
                 <q-btn size="lg" :style="'background:'+ theme_color +'; color: white'" label="Send Message"/>
               </div>
             </div>
+            <br>
+            <br>
           </div>
         </div>
 
