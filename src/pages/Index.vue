@@ -241,8 +241,8 @@
 
           <br />
 
-          <div class="row text-center flex flex-center " >
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 q-px-xl">
+          <div class="row text-center flex flex-center">
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 q-px-xl custom-portfolio">
                 <span v-for="(sample, index) in portfolio_samples" :key="sample.index">
                   <q-flashcard :no-hover="hover" :style="portfolio_style">
                     <q-flashcard-section transition="nudge-in" :active="active">
@@ -611,7 +611,7 @@
         </div>
 
         <q-toolbar class="flex flex-center text-white" style="background-color: #1c1b21;" :style="'border-top: 2px solid '+ theme_color">
-          <div class="q-pa-sm q-gutter-sm">
+          <div class="q-pa-sm q-gutter-sm text-center">
             Copyright © 2025 By FarisSoftware. All Rights Reserved.
           </div>
         </q-toolbar>
@@ -941,5 +941,12 @@
     max-height: 300px; /* adjust as needed */
     overflow: hidden;
   
-  
+  .custom-portfolio
+    display: block;
+    flex-direction: row;
+    align-items: center;
+
+    @media (max-width: 599px)
+      display: flex;
+      flex-direction: column;
 </style>
